@@ -1,6 +1,5 @@
 import SplashScene from "./splashScene.js"
-import TitleScene from './titleScene.js'
-
+import TitleScene from "./titleScene.js"
 
 const splashScene = new SplashScene()
 const titleScene = new TitleScene()
@@ -15,17 +14,17 @@ const config = {
       debug: true,
     },
   },
- backgroundColor: 0x5f6e7a,
-      scale: {
-        mode: Phaser.Scale.FIT,
-         autoCenter: Phaser.Scale.CENTER_BOTH,
-      },
+  backgroundColor: 0x5f6e7a,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
 }
 
 const game = new Phaser.Game(config)
 console.log(game)
 
 game.scene.add("splashScene", splashScene)
-game.scene.add('titleScene', titleScene)
+game.scene.add("titleScene", titleScene)
 
-game.scene.start('splashScene')
+game.scene.start("splashScene")
