@@ -20,9 +20,9 @@ const config = {
         mode: Phaser.Scale.FIT,
          autoCenter: Phaser.Scale.CENTER_BOTH,
       },
-},
+}
 
-game = new Phaser.Game(config)
+const game = new Phaser.Game(config)
 console.log(game)
 
 game.scene.add("splashScene", splashScene)
