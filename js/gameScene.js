@@ -16,8 +16,8 @@ class GameScene extends Phaser.Scene {
 
     this.load.image("starBackground", "./assets/starBackground.png")
     this.load.image("ship", "./assets/spaceShip.png")
-    this.load.image('missile', 'assets/missile.png')
-    this.load.audio('laser', 'assets/laser1.wav')
+    this.load.image("missile", "assets/missile.png")
+    this.load.audio("laser", "assets/laser1.wav")
   }
 
   create(data) {
@@ -26,14 +26,14 @@ class GameScene extends Phaser.Scene {
 
     this.ship = this.physics.add.sprite(1920 / 2, 1080 - 100, "ship")
 
-  this.missileGroup = this.physics.add.group()
+    this.missileGroup = this.physics.add.group()
   }
 
-   update (time, delta) {
+  update(time, delta) {
     // called 60 times a second, hopefully!
-    const keyLeftObj = this.input.keyboard.addKey('LEFT')
-    const keyRightObj = this.input.keyboard.addKey('RIGHT')
-    const keySpaceObj = this.input.keyboard.addKey('SPACE')
+    const keyLeftObj = this.input.keyboard.addKey("LEFT")
+    const keyRightObj = this.input.keyboard.addKey("RIGHT")
+    const keySpaceObj = this.input.keyboard.addKey("SPACE")
 
     if (keyLeftObj.isDown === true) {
       this.ship.x -= 15
@@ -52,13 +52,16 @@ class GameScene extends Phaser.Scene {
       if (this.fireMissile === false) {
         // fire missile
         this.fireMissile = true
-        const aNewMissile = this.physics.add.sprite(this.ship.x, this.ship.y, 'missile')
+        const aNewMissile = this.physics.add.sprite(
+          this.ship.x,
+          this.ship.y,
+          "missile"
+        )
         this.missileGroup.add(aNewMissile)
-        this.sound.play('laser')
-
+        this.sound.play("laser")
       }
     }
-  
+
     if (keySpaceObj.isUp === true) {
       this.fireMissile = false
     }
@@ -71,6 +74,5 @@ class GameScene extends Phaser.Scene {
     })
   }
 }
-
 
 export default GameScene
